@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Derrick Suarez :: Star Wars RPG Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <h1 class="col-md-12 text-center">Star Wars RPG Game</h1>
+        </div>
+
+        <div class="text-center row">
+            <div class="col-md-3">
+                <h3>Choose your character:</h3>
+                <div class="character-holder">
+                    <img src="assets/images/eeth-koth.jpg" alt="Eeth Koth" class="characterIcon Eeth Koth">
+                    <img src="assets/images/ki-adi-mundi.jpg" alt="Ki-Adi-Mundi" class="characterIcon Ki-Adi-Mundi">
+                    <img src="assets/images/darth-krayt.jpg" alt="Darth Krayt" class="characterIcon Darth Krayt">
+                    <img src="assets/images/darth-revan.jpg" alt="Darth Revan" class="characterIcon Darth Revan">
+                </div>
+            </div>
+        
+            <div class="col-md-3">
+                <h3>Your character:</h3>
+                <div id="user-character-div"></div>
+            </div>
+        
+            <div class="col-md-3">
+                <h3>You are attacking:</h3>
+                <div id="defending-enemy-div"></div>
+            </div>
+
+            <div class="col-md-3">
+                <h3>Choose your enemy:</h3>
+                <div class="character-holder" id="available-enemies-div"></div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game2.js"></script>
+</body>
+
+</html>

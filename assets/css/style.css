@@ -1,0 +1,29 @@
+.character-holder {
+	height: 650px;
+	width: 200px;
+	background-color: lightgrey;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+.characterIcon {
+	height: 150px;
+	width: 150px;
+	border: 1px solid black;
+}
+
+#user-character-div {
+	height: 200px;
+	width: 200px;
+	background-color: lightgrey;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+#defending-enemy-div {
+	height: 200px;
+	width: 200px;
+	background-color: lightgrey;
+	border: 1px solid black;
+	margin: 0 auto;
+}
