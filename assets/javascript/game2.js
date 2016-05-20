@@ -55,6 +55,12 @@ $(".characterIcon").on("click", function() {
         }
         console.log(chosenUserCharacter);
 
+        $(this).addClass("userShadow");
+
+        $("#user-stats").append("You have chosen " + chosenUserCharacter.name + "!");
+
+        $("#enemy-stats").append("Now choose your enemy...");
+
         // moves characters not chosen by player to the "available-enemies-div"
         $("#available-enemies-div").append($(this).siblings("img"));
 
@@ -77,6 +83,12 @@ $(".characterIcon").on("click", function() {
             chosenActiveDefender = char4;
         }
         console.log(chosenActiveDefender);
+
+        $(this).addClass("enemyShadow");
+
+        $("#enemy-stats").empty();
+
+        $("#enemy-stats").append("You will battle " + chosenActiveDefender.name + "!");
         
         // moves character chosen second by player to the "defending-enemy-div"
         $("#defending-enemy-div").append(this);
@@ -89,29 +101,33 @@ $(".characterIcon").on("click", function() {
 });
 
 // attack button
-$(".attack-button").on("click", function() {
+$("#attack-button").on("click", function() {
 
-    console.log("Defender HP before attack: " + chosenActiveDefender.hp);
+    // console.log("Defender HP before attack: " + chosenActiveDefender.hp);
 
-    console.log("User attack: " + chosenUserCharacter.attack);
+    // console.log("User attack: " + chosenUserCharacter.attack);
 
     chosenActiveDefender.hp -= chosenUserCharacter.incrAttack;
 
-    console.log("Defender HP after attack: " + chosenActiveDefender.hp);
+    // console.log("Defender HP after attack: " + chosenActiveDefender.hp);
 
-    console.log("Attacker HP before attack: " + chosenUserCharacter.hp);
+    // console.log("Attacker HP before attack: " + chosenUserCharacter.hp);
 
-    console.log("Defender attack: " + chosenActiveDefender.attack);
+    // console.log("Defender attack: " + chosenActiveDefender.attack);
 
     chosenUserCharacter.hp -= chosenActiveDefender.attack;
 
-    console.log("Attacker HP after attack: " + chosenUserCharacter.hp);
+    // console.log("Attacker HP after attack: " + chosenUserCharacter.hp);
+
+    $("#user-stats").html("You hit " + chosenActiveDefender.name + " for " + chosenUserCharacter.incrAttack + "<br><br>Your opponent hit you for " + chosenActiveDefender.attack);
+
+    $("#enemy-stats").html("Your opponent's hp has been reduced to " + chosenActiveDefender.hp + "<br><br>Your hp has been reduced to " + chosenUserCharacter.hp);
 
     chosenUserCharacter.incrAttack += chosenUserCharacter.attack;
 
-    console.log("User incremented attack: " + chosenUserCharacter.incrAttack);
+    // console.log("User incremented attack: " + chosenUserCharacter.incrAttack);
 
-    console.log("-----------------------------------");
+    // console.log("-----------------------------------");
 
     if (chosenUserCharacter.hp <= 0) {
         alert("You lost!");
@@ -120,7 +136,7 @@ $(".attack-button").on("click", function() {
     } else if (chosenActiveDefender.hp <= 0) {
         winCounter++;
         $("#defending-enemy-div").empty();
-        alert("You won!  Choose your next enemy...");
+        $("#enemy-stats").html("Your enemy has been defeated!<br><br>Choose your next opponent...");
         clickCounter = 1;
     }
 });

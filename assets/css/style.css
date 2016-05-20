@@ -1,46 +1,149 @@
-/* full page bg img */
-/*html {
-	background: url(../images/bg.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}*/
+/*@font-face { font-family: Star Jedi; src: url('../fonts/starFont/Starjout.ttf'); }*/
 
-/*.jumbotron {
-	background: url(../images/bg.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}*/
-
-.character-holder {
-	height: 650px;
-	width: 200px;
-	background-color: lightgrey;
-	border: 1px solid black;
-	margin: 0 auto;
+* {
+	box-sizing: border-box;
 }
 
+/* full page bg img */
+html {
+	background: url(../images/bg.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/* content wrapper */
+.main-wrapper {
+	width: 1024px;
+	margin: auto;
+	/* ---- STICKY FOOTER CSS ---- */
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+/* character icons */
 .characterIcon {
-	height: 150px;
-	width: 150px;
-	border: 1px solid black;
+	height: 130px;
+	width: 130px;
+	/*border: 1px solid black;*/
+	border-radius: 5px;
+	margin-top: 8%;
+}
+
+.userShadow {
+	box-shadow: 0px 0px 30px 15px #00F510;
+}
+
+.enemyShadow {
+	box-shadow: 0px 0px 30px 15px #F50000;
+}
+
+/* headings and text */
+h1, .header, p {
+	font-family: 'Poiret One', cursive;
+	color: #F0F0F0;
+}
+
+h1 {
+	font-size: 4.5em;
+	margin: 30px 0px 40px 40px;
+}
+
+.char-div-header {
+	color: #FFF;
+	display: inline-block;
+	font-size: 1.5em;
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	background-color: rgba(220, 220, 0, 0.7);
+	padding: 12px 0px;
+	width: 248px;
+	margin: 0px 2px;
+}
+
+/* character holders */
+.character-holder {
+	height: 680px;
+	width: 256px;
+	/*border: 1px solid #F0F0F0;*/
+	/*margin: 0 auto;*/
+	display: inline-block;
+	text-align: center;
+}
+
+#single-char-wrapper {
+	width: 512px;
+	display: inline-block;
 }
 
 #user-character-div {
 	height: 200px;
 	width: 200px;
-	background-color: lightgrey;
-	border: 1px solid black;
-	margin: 0 auto;
+	/*border: 1px solid #F0F0F0;;*/
+	display: inline-block;
+	float: left;
+	text-align: center;
+	margin-left: 8%;
 }
 
 #defending-enemy-div {
 	height: 200px;
 	width: 200px;
-	background-color: lightgrey;
-	border: 1px solid black;
-	margin: 0 auto;
+	/*border: 1px solid #F0F0F0;;*/
+	display: inline-block;
+	float: right;
+	text-align: center;
+	margin-right: 8%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/* button div */
+#button-holder {
+	width: 512px;
+	display: inline-block;
+	/*border: 1px solid #F0F0F0;*/
+	text-align: center;
+	padding: 20px 0px;
+}
+
+button {
+	height: 40px;
+	width: 120px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	font-family: 'Poiret One', cursive;
+	font-size: 1.5em;
+}
+
+/* stats div */
+#stats-holder {
+	width: 512px;
+	height: 206px;
+	display: inline-block;
+	/*border: 1px solid #F0F0F0;*/
+	text-align: center;
+	padding: 20px 0px;
+}
+
+.info {
+	width: 512px;
+	height: 128px;
+	display: inline-block;
+	/*border: 1px solid #F0F0F0;*/
+	border-radius: 5px;
+	text-align: center;
+	padding: 20px 0px;
+	font-size: 1.5em;
+	background-color: rgba(220, 220, 0, 0.7);
+	margin-top: 6px;
 }
