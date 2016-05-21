@@ -51,6 +51,10 @@ h1 {
 	margin: 30px 0px 40px 40px;
 }
 
+.header-wrapper {
+	margin-bottom: 12px;
+}
+
 .char-div-header {
 	color: #FFF;
 	display: inline-block;

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
     // global variables
     var chosenUserCharacter, chosenActiveDefender, initialUserStats, initialEnemyStats;
     var clickCounter = 0;
@@ -51,10 +53,13 @@ $(document).ready(function() {
                 chosenUserCharacter = char4;
             }
 
+            // adds the green glow using box shadow in CSS
             $(this).addClass("userShadow");
 
+            // displays user player stats
             $("#attack-stats").append("You have chosen " + chosenUserCharacter.name + "!" + "<br><br>HP: " + chosenUserCharacter.hp + "<br>Attack Power: " + chosenUserCharacter.incrAttack);
 
+            // displays next step for user
             $("#hp-stats").append("Now choose your enemy...");
 
             // moves characters not chosen by player to the "available-enemies-div"
@@ -79,10 +84,13 @@ $(document).ready(function() {
                 chosenActiveDefender = char4;
             }
 
+            // adds the red glow using box shadow in CSS
             $(this).addClass("enemyShadow");
 
+            // clears the 'hp-stats' div
             $("#hp-stats").empty();
 
+            // displays enemy stats
             $("#hp-stats").append("You will battle " + chosenActiveDefender.name + "!" + "<br><br>HP: " + chosenActiveDefender.hp + "<br>Attack Power: " + chosenActiveDefender.incrAttack);
 
             // moves character chosen second by player to the "defending-enemy-div"
@@ -98,24 +106,33 @@ $(document).ready(function() {
     // attack button
     $("#attack-button").on("click", function() {
 
+        // checks to see if the user has made any clicks so far; if not, do nothing except display a message saying to choose a character first
         if (clickCounter === 0) {
             $("#attack-stats").html("Please first choose a character...");
         }
 
+        // if the user has only selected his/her character, the user still needs to select an enemy
         if (lossCounter === 1) return;
 
+        // after the user has won once, do nothing until he/she chooses another character
         if (clickCounter === 1 && winCounter === 1) return;
 
+        // update the defender's hp by subtracting the incremented attack
         chosenActiveDefender.hp -= chosenUserCharacter.incrAttack;
 
+        // update the user's hp by subtracting the defender's attack
         chosenUserCharacter.hp -= chosenActiveDefender.attack;
 
+        // display gameplay info
         $("#attack-stats").html("You hit " + chosenActiveDefender.name + " for " + chosenUserCharacter.incrAttack + "<br><br>Your opponent hit you for " + chosenActiveDefender.attack);
 
+        // displays gameplay info
         $("#hp-stats").html("Your opponent's hp has been reduced to " + chosenActiveDefender.hp + "<br><br>Your hp has been reduced to " + chosenUserCharacter.hp);
 
+        // increments the user's attack by double each time
         chosenUserCharacter.incrAttack += chosenUserCharacter.attack;
 
+        // tracker for win / loss
         if (chosenUserCharacter.hp <= 0) {
             lossCounter++;
             clickCounter = 2;
@@ -128,29 +145,17 @@ $(document).ready(function() {
             $("#hp-stats").html("Your enemy has been defeated!<br><br>Choose your next opponent...");
             clickCounter = 1;
         }
+
+        if (winCounter === 3) {
+            $("#hp-stats").html("The force is strong with you!<br><br>Click reset if you want to play again.");
+            $("#attack-stats").empty();
+        }
     });
 
-    function reset() {
-        $("img").each(function() {
-            $(".left").append(this);
-            $(this).removeClass("userShadow");
-            $(this).removeClass("enemyShadow");
-            clickCounter = 0;
-            $("#attack-stats").empty();
-            $("#hp-stats").empty();
-            char1.hp = 100;
-            char1.incrAttack = 8;
-            char2.hp = 120;
-            char2.incrAttack = 10;
-            char3.hp = 150;
-            char3.incrAttack = 12;
-            char4.hp = 180;
-            char4.incrAttack = 15;
-        });
-    }
-
+    // reset button to reload the page
     $("#reset-button").on("click", function() {
-        reset();
+        // reset();
+        location.reload();
     });
 
 
