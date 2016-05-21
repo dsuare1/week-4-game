@@ -29,7 +29,7 @@ html {
 	width: 130px;
 	/*border: 1px solid black;*/
 	border-radius: 5px;
-	margin-top: 8%;
+	margin-top: 6%;
 }
 
 .userShadow {
@@ -47,7 +47,7 @@ h1, .header, p {
 }
 
 h1 {
-	font-size: 4.5em;
+	font-size: 4em;
 	margin: 30px 0px 40px 40px;
 }
 
@@ -65,7 +65,7 @@ h1 {
 
 /* character holders */
 .character-holder {
-	height: 680px;
+	height: 615px;
 	width: 256px;
 	/*border: 1px solid #F0F0F0;*/
 	/*margin: 0 auto;*/
@@ -75,6 +75,7 @@ h1 {
 
 #single-char-wrapper {
 	width: 512px;
+	height: 150px;
 	display: inline-block;
 }
 
@@ -109,6 +110,7 @@ h1 {
 /* button div */
 #button-holder {
 	width: 512px;
+	height: 150px;
 	display: inline-block;
 	/*border: 1px solid #F0F0F0;*/
 	text-align: center;
@@ -116,8 +118,6 @@ h1 {
 }
 
 button {
-	height: 40px;
-	width: 120px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 5px;
@@ -125,10 +125,24 @@ button {
 	font-size: 1.5em;
 }
 
+#attack-button {
+	height: 50px;
+	width: 140px;
+	background-color: #00F510;
+	border: none;
+}
+
+#reset-button {
+	height: 40px;
+	width: 120px;
+	background-color: #DCDC00;
+	border: none;
+}
+
 /* stats div */
 #stats-holder {
 	width: 512px;
-	height: 206px;
+	height: 316px;
 	display: inline-block;
 	/*border: 1px solid #F0F0F0;*/
 	text-align: center;
@@ -146,4 +160,25 @@ button {
 	font-size: 1.5em;
 	background-color: rgba(220, 220, 0, 0.7);
 	margin-top: 6px;
+}
+
+#countdown-div {
+	z-index: 100;
+	position: absolute;
+	width: 100%;
+	height: 400px;
+	background-color: rgba(220, 220, 0, 0.7);
+	margin-top: 12%;
+	font-family: 'Poiret One', cursive;
+	color: #F0F0F0;	
+	text-align: center;
+	font-size: 8em;
+	padding-top: 2%;
+	display: none;
+
+}
+
+#countdown {
+	text-align: center;
+	font-size: 2em;
 }
