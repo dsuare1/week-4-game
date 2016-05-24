@@ -56,6 +56,8 @@ $(document).ready(function() {
             // adds the green glow using box shadow in CSS
             $(this).addClass("userShadow");
 
+            $("#attack-stats").empty();
+
             // displays user player stats
             $("#attack-stats").append("You have chosen " + chosenUserCharacter.name + "!" + "<br><br>HP: " + chosenUserCharacter.hp + "<br>Attack Power: " + chosenUserCharacter.incrAttack);
 
@@ -101,6 +103,8 @@ $(document).ready(function() {
 
             // once user has chosen both player and defender, do nothing on subsequent clicks  
         } else if (clickCounter === 2) return;
+
+        if (clickCounter === 1 && winCounter === 1) return;
     });
 
     // attack button
@@ -116,6 +120,11 @@ $(document).ready(function() {
 
         // after the user has won once, do nothing until he/she chooses another character
         if (clickCounter === 1 && winCounter === 1) return;
+
+        // after the user has won twice, do nothing until he/she chooses another character
+        if (clickCounter === 1 && winCounter === 2) return;
+
+        if (clickCounter === 1 && winCounter === 3) return;
 
         // update the defender's hp by subtracting the incremented attack
         chosenActiveDefender.hp -= chosenUserCharacter.incrAttack;
@@ -149,6 +158,7 @@ $(document).ready(function() {
         if (winCounter === 3) {
             $("#hp-stats").html("The force is strong with you!<br><br>Click reset if you want to play again.");
             $("#attack-stats").empty();
+            return;
         }
     });
 
